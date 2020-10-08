@@ -38,24 +38,28 @@ module.exports = function(karma) {
 		// diff more stable when ran on Travis and dev machine.
 		// https://github.com/chartjs/Chart.js/pull/5629
 		customLaunchers: {
-			chrome: {
+			// chrome: {
+			// 	base: 'Chrome',
+			// 	flags: [
+			// 		'--disable-accelerated-2d-canvas'
+			// 	]
+			// },
+			// firefox: {
+			// 	base: 'Firefox',
+			// 	prefs: {
+			// 		'layers.acceleration.disabled': true
+			// 	}
+			// },
+			// safari: {
+			// 	base: 'SafariPrivate'
+			// },
+			// edge: {
+			// 	base: 'Edge'
+			// },
+			ChromeWithoutSandbox: {
 				base: 'Chrome',
-				flags: [
-					'--disable-accelerated-2d-canvas'
-				]
+				flags: ['--no-sandbox', '--disable-setuid-sandbox'],
 			},
-			firefox: {
-				base: 'Firefox',
-				prefs: {
-					'layers.acceleration.disabled': true
-				}
-			},
-			safari: {
-				base: 'SafariPrivate'
-			},
-			edge: {
-				base: 'Edge'
-			}
 		},
 
 		files: [
